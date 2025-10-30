@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhav Wadhwa | Developer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e27;
+            --bg-secondary: #151934;
+            --accent: #00ff88;
+            --accent-dim: #00cc6a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --border: #2a2f4c;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .logo::before {
+            content: '> ';
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .hero-content h2 {
+            font-size: 1.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .typing-text {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            min-height: 30px;
+        }
+
+        .typing-text::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: 2px solid var(--accent);
+            background: transparent;
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            transition: left 0.3s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn:hover {
+            color: var(--bg-primary);
+        }
+
+        .btn-secondary {
+            border-color: var(--text-secondary);
+            color: var(--text-secondary);
+        }
+
+        .btn-secondary::before {
+            background: var(--text-secondary);
+        }
+
+        section {
+            padding: 100px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--accent);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::before {
+            content: '// ';
+            color: var(--text-secondary);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .about-top {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .profile-placeholder {
+            text-align: center;
+        }
+
+        .profile-placeholder img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border: 3px solid var(--accent);
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: block;
+            margin: 0 auto 15px;
+        }
+
+        .profile-placeholder img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .profile-subtitle {
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .skill-category h3 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            color: var(--text-secondary);
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .skill-category li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 30px;
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: var(--accent);
+            transition: height 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .project-card:hover::before {
+            height: 100%;
+        }
+
+        .project-card h3 {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .project-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tech-tag {
+            padding: 5px 12px;
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 0.85rem;
+        }
+
+        .experience-list {
+            max-width: 900px;
+        }
+
+        .experience-item {
+            margin-bottom: 50px;
+            padding-left: 30px;
+            border-left: 2px solid var(--border);
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .experience-item h3 {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .experience-item h4 {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .experience-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .experience-item ul {
+            list-style: none;
+        }
+
+        .experience-item li {
+            color: var(--text-secondary);
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .experience-item li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-link:hover {
+            color: var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.3rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-top {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-placeholder img {
+                max-width: 200px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.85rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">bhav.wadhwa</div>
+            <ul>
+                <li><a href="#about">about</a></li>
+                <li><a href="#projects">projects</a></li>
+                <li><a href="#experience">experience</a></li>
+                <li><a href="#certifications">certifications</a></li>
+                <li><a href="#awards">awards</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Bhav Wadhwa</h1>
+                <h2>Hackathon Winner | Computing Science Student @ SFU</h2>
+                <div class="typing-text" id="typing-text"></div>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-top">
+                    <div>
+                        <div class="profile-placeholder">
+                            <img src="https://raw.githubusercontent.com/BhavWadhwaHub/About-me/main/bhav.jpg" alt="Bhav Wadhwa">
+                            <div class="profile-subtitle">Bhav Wadhwa</div>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <p>I'm a curious builder at heart — exploring how technology, AI, and security can shape the future. I thrive on turning complex ideas into real solutions, whether it's experimenting with emerging tech, designing secure systems, or creating projects that connect people and make an impact. For me, curiosity isn't just about learning — it's about building with purpose.</p>
+                    </div>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming Languages & Frameworks</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>C++</li>
+                            <li>JavaScript</li>
+                            <li>TypeScript</li>
+                            <li>Node.js</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Web Development</h3>
+                        <ul>
+                            <li>HTML & CSS</li>
+                            <li>REST APIs</li>
+                            <li>Responsive Design</li>
+                            <li>Cross-Browser Compatibility</li>
+                            <li>Leaflet API</li>
+                            <li>Express.js</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Security & Cryptography</h3>
+                        <ul>
+                            <li>MD5 Hashing</li>
+                            <li>QKD (Quantum Key Distribution)</li>
+                            <li>XOR Encryption/Decryption</li>
+                            <li>Cryptographic Protocols</li>
+                            <li>Key Management</li>
+                            <li>Secure Coding Practices</li>
+                            <li>Qiskit</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Software Development Practices</h3>
+                        <ul>
+                            <li>Data Structures & Algorithms</li>
+                            <li>Object-Oriented Programming</li>
+                            <li>Dynamic Memory Management</li>
+                            <li>Debugging & Performance Tuning</li>
+                            <li>Agile Methodologies</li>
+                            <li>Design Patterns</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>ClimaZoneAI - Renewable Energy Forecasting</h3>
+                    <div class="project-date">DSS DataJam Hackathon Winner | October 2025</div>
+                    <p>AI-powered forecasting system predicting solar, wind, and hydro energy potential across 231 Canadian cities. Engineered data pipelines processing 100K+ weather records with pandas and scikit-learn. Implemented ensemble models using Prophet and XGBoost for accurate predictions (30 days–1 year). Built interactive Plotly.js dashboard deployed via GitHub Pages.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Prophet</span>
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">Plotly.js</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">AI/ML</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Quantum Walkie Talkie</h3>
+                    <div class="project-date">July 2025</div>
+                    <p>A BB84-inspired Quantum Key Distribution simulation using Qiskit for secure cryptographic key generation. Implemented secure communication workflow with quantum basis matching and one-time-pad XOR encryption for message exchange.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Qiskit</span>
+                        <span class="tech-tag">Cryptography</span>
+                        <span class="tech-tag">Quantum Computing</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Emergency Reporting Service</h3>
+                    <div class="project-date">November 2024</div>
+                    <p>Web-based Emergency Reporting & Monitoring System with interactive maps for real-time tracking. Features secure report management with MD5 hashing, sortable listings, and comprehensive input validation.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">Leaflet API</span>
+                        <span class="tech-tag">Web Development</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Hospital Management System</h3>
+                    <div class="project-date">August 2024</div>
+                    <p>Comprehensive hospital management system built with C++ using OOP principles. Features doctor assignments, service pricing, and optimized patient-doctor matching with an intuitive interface.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">OOP</span>
+                        <span class="tech-tag">System Design</span>
+                        <span class="tech-tag">Algorithms</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Playlist Management System</h3>
+                    <div class="project-date">September 2024</div>
+                    <p>Custom playlist manager in C++ using linked list data structures. Showcases dynamic memory allocation, OOP principles, and efficient resource management for seamless song management.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">Data Structures</span>
+                        <span class="tech-tag">Memory Management</span>
+                        <span class="tech-tag">Algorithms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <h3>Community Transition Manager</h3>
+                    <h4>Fraser International College</h4>
+                    <div class="experience-date">January 2025 - September 2025 | Burnaby, BC</div>
+                    <ul>
+                        <li>Leading planning and execution of orientation activities for Summer and Fall 2025</li>
+                        <li>Collaborating with faculty and staff to create inclusive atmosphere for new students</li>
+                        <li>Providing resources and support to help students adapt confidently</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Information Technology Squad</h3>
+                    <h4>Fraser International College</h4>
+                    <div class="experience-date">September 2024 - April 2025 | Burnaby, BC</div>
+                    <ul>
+                        <li>Troubleshooting technical issues for teachers, staff, and students</li>
+                        <li>Managing inventory and overseeing campus technology infrastructure</li>
+                        <li>Resolving hardware/software issues to optimize support processes</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Senior Orientation Leader</h3>
+                    <h4>Fraser International College</h4>
+                    <div class="experience-date">January 2025 | Burnaby, BC</div>
+                    <ul>
+                        <li>Mentored junior leaders with guidance and feedback during orientation</li>
+                        <li>Facilitated group activities and icebreakers for community building</li>
+                        <li>Collaborated with staff to streamline event schedules and logistics</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Finance Manager</h3>
+                    <h4>Bubble Bliss Startup</h4>
+                    <div class="experience-date">September 2022 - November 2022 | India</div>
+                    <ul>
+                        <li>Co-founded student-led startup, turning concept into functioning business</li>
+                        <li>Applied financial acumen to guide budgeting and forecasting decisions</li>
+                        <li>Improved forecasting accuracy for proactive strategic adjustments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <h3>IBM Python for Data Science, AI & Development</h3>
+                    <h4>IBM via Coursera</h4>
+                    <div class="experience-date">Completed May 30, 2025</div>
+                    <ul>
+                        <li>Mastered Python fundamentals including data structures, loops, and functions for data science applications</li>
+                        <li>Worked with libraries like Pandas, NumPy, and Matplotlib for data manipulation and visualization</li>
+                        <li>Built practical AI/ML projects demonstrating Python's capabilities in data analysis and automation</li>
+                        <li>Developed skills in API interaction, web scraping, and working with real-world datasets</li>
+                    </ul>
+                    <a href="https://www.coursera.org/account/accomplishments/verify/AE9CWINJK2M9" target="_blank" class="btn" style="display: inline-block; margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">View Certificate →</a>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Ethical Hacking Fundamentals</h3>
+                    <h4>Learn Kart WS</h4>
+                    <div class="experience-date">Completed September 18, 2025</div>
+                    <ul>
+                        <li>Gained comprehensive understanding of cybersecurity principles and ethical hacking methodologies</li>
+                        <li>Learned vulnerability assessment techniques including penetration testing and security auditing</li>
+                        <li>Explored network security, cryptography fundamentals, and secure system design practices</li>
+                        <li>Applied ethical hacking concepts to identify and mitigate security risks in systems</li>
+                    </ul>
+                    <a href="https://www.coursera.org/account/accomplishments/verify/HR0E3X42XN6G" target="_blank" class="btn" style="display: inline-block; margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">View Certificate →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="awards">
+        <div class="container">
+            <h2 class="section-title">Awards & Honours</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>🏆 DSS DataJam Hackathon Winner</h3>
+                    <div class="project-date">2025</div>
+                    <p>Won first place at the DSS DataJam Hackathon for ClimaZoneAI - an AI-powered renewable energy forecasting system analyzing weather data from 233 Canadian cities. Built intelligent inference models, domain-specific energy indices, and interactive forecasting dashboards using Prophet, XGBoost, and Plotly.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>🎤 Most Engaging Presentation Award</h3>
+                    <div class="project-date">DSS DataJam 2025</div>
+                    <p>Recognized for delivering the most engaging and impactful presentation at the DSS DataJam Hackathon. Successfully communicated complex technical concepts about renewable energy forecasting, AI model architecture, and data visualization to both technical and non-technical audiences.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>🌟 Community Engagement Scholarship</h3>
+                    <div class="project-date">February 2025</div>
+                    <p>Awarded by Fraser International College for outstanding contributions to campus community building and student engagement. Recognized for leadership roles in orientation programs, technical support initiatives, and fostering an inclusive environment for international students.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">Get In Touch</h2>
+                <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether you want to collaborate or just say hi, feel free to reach out!</p>
+                <a href="mailto:bwa93@sfu.ca" class="btn">Send Me an Email</a>
+                <div class="contact-links">
+                    <a href="https://www.linkedin.com/in/bhav-wadhwa-b16439247/" target="_blank" class="contact-link">
+                        <span>→</span> LinkedIn
+                    </a>
+                    <a href="https://github.com/bhavwadhwa" target="_blank" class="contact-link">
+                        <span>→</span> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Designed & Built by Bhav Wadhwa | © 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        const typingText = document.getElementById('typing-text');
+        const phrases = [
+            'AI/ML • Cloud & Software Development',
+            'Building innovative solutions with code',
+            'Exploring quantum computing & cryptography',
+            'Creating seamless user experiences',
+            'Hackathon winner & problem solver'
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+            }
+
+            const typingSpeed = isDeleting ? 50 : 100;
+            setTimeout(type, typingSpeed);
+        }
+
+        type();
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
