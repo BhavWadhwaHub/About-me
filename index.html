@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -113,8 +114,16 @@
         }
 
         @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
         }
 
         .cta-buttons {
@@ -468,6 +477,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav>
         <div class="container">
@@ -504,12 +514,17 @@
                 <div class="about-top">
                     <div>
                         <div class="profile-placeholder">
-                            <img src="https://raw.githubusercontent.com/BhavWadhwaHub/About-me/main/image000.jpg" alt="About Me Image" width="400">
+                            <img src="https://raw.githubusercontent.com/BhavWadhwaHub/About-me/main/bhav.jpg"
+                                alt="Bhav Wadhwa">
                             <div class="profile-subtitle">Bhav Wadhwa</div>
                         </div>
                     </div>
                     <div class="about-text">
-                        <p>I'm a curious builder at heart — exploring how technology, AI, and security can shape the future. I thrive on turning complex ideas into real solutions, whether it's experimenting with emerging tech, designing secure systems, or creating projects that connect people and make an impact. For me, curiosity isn't just about learning — it's about building with purpose.</p>
+                        <p>I'm a curious builder at heart — exploring how technology, AI, and security can shape the
+                            future. I thrive on turning complex ideas into real solutions, whether it's experimenting
+                            with emerging tech, designing secure systems, or creating projects that connect people and
+                            make an impact. For me, curiosity isn't just about learning — it's about building with
+                            purpose.</p>
                     </div>
                 </div>
                 <div class="skills-grid">
@@ -521,6 +536,8 @@
                             <li>JavaScript</li>
                             <li>TypeScript</li>
                             <li>Node.js</li>
+                            <li>R Studio</li>
+                            <li>Git</li>
                         </ul>
                     </div>
                     <div class="skill-category">
@@ -532,6 +549,9 @@
                             <li>Cross-Browser Compatibility</li>
                             <li>Leaflet API</li>
                             <li>Express.js</li>
+                            <li>Flask</li>
+                            <li>Application Deployment</li>
+                            <li>Network Development</li>
                         </ul>
                     </div>
                     <div class="skill-category">
@@ -547,14 +567,15 @@
                         </ul>
                     </div>
                     <div class="skill-category">
-                        <h3>Software Development Practices</h3>
+                        <h3>Software Development & ML</h3>
                         <ul>
                             <li>Data Structures & Algorithms</li>
                             <li>Object-Oriented Programming</li>
                             <li>Dynamic Memory Management</li>
                             <li>Debugging & Performance Tuning</li>
-                            <li>Agile Methodologies</li>
-                            <li>Design Patterns</li>
+                            <li>Keras</li>
+                            <li>Machine Learning</li>
+                            <li>Automated Reasoning</li>
                         </ul>
                     </div>
                 </div>
@@ -569,7 +590,10 @@
                 <div class="project-card">
                     <h3>ClimaZoneAI - Renewable Energy Forecasting</h3>
                     <div class="project-date">DSS DataJam Hackathon Winner | October 2025</div>
-                    <p>AI-powered forecasting system predicting solar, wind, and hydro energy potential across 231 Canadian cities. Engineered data pipelines processing 100K+ weather records with pandas and scikit-learn. Implemented ensemble models using Prophet and XGBoost for accurate predictions (30 days–1 year). Built interactive Plotly.js dashboard deployed via GitHub Pages.</p>
+                    <p>AI-powered forecasting system predicting solar, wind, and hydro energy potential across 231
+                        Canadian cities. Engineered data pipelines processing 100K+ weather records with pandas and
+                        scikit-learn. Implemented ensemble models using Prophet and XGBoost for accurate predictions (30
+                        days–1 year). Built interactive Plotly.js dashboard deployed via GitHub Pages.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Prophet</span>
@@ -586,7 +610,9 @@
                 <div class="project-card">
                     <h3>Quantum Walkie Talkie</h3>
                     <div class="project-date">July 2025</div>
-                    <p>A BB84-inspired Quantum Key Distribution simulation using Qiskit for secure cryptographic key generation. Implemented secure communication workflow with quantum basis matching and one-time-pad XOR encryption for message exchange.</p>
+                    <p>A BB84-inspired Quantum Key Distribution simulation using Qiskit for secure cryptographic key
+                        generation. Implemented secure communication workflow with quantum basis matching and
+                        one-time-pad XOR encryption for message exchange.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Qiskit</span>
@@ -598,7 +624,9 @@
                 <div class="project-card">
                     <h3>Emergency Reporting Service</h3>
                     <div class="project-date">November 2024</div>
-                    <p>Web-based Emergency Reporting & Monitoring System with interactive maps for real-time tracking. Features secure report management with MD5 hashing, sortable listings, and comprehensive input validation.</p>
+                    <p>Web-based Emergency Reporting & Monitoring System with interactive maps for real-time tracking.
+                        Features secure report management with MD5 hashing, sortable listings, and comprehensive input
+                        validation.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">JavaScript</span>
                         <span class="tech-tag">HTML/CSS</span>
@@ -610,7 +638,9 @@
                 <div class="project-card">
                     <h3>Hospital Management System</h3>
                     <div class="project-date">August 2024</div>
-                    <p>Comprehensive hospital management system built with C++ using OOP principles. Features doctor assignments, service pricing, and optimized patient-doctor matching with an intuitive interface.</p>
+                    <p>Comprehensive hospital management system built with C++ using OOP principles. Features doctor
+                        assignments, service pricing, and optimized patient-doctor matching with an intuitive interface.
+                    </p>
                     <div class="tech-tags">
                         <span class="tech-tag">C++</span>
                         <span class="tech-tag">OOP</span>
@@ -622,7 +652,8 @@
                 <div class="project-card">
                     <h3>Playlist Management System</h3>
                     <div class="project-date">September 2024</div>
-                    <p>Custom playlist manager in C++ using linked list data structures. Showcases dynamic memory allocation, OOP principles, and efficient resource management for seamless song management.</p>
+                    <p>Custom playlist manager in C++ using linked list data structures. Showcases dynamic memory
+                        allocation, OOP principles, and efficient resource management for seamless song management.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">C++</span>
                         <span class="tech-tag">Data Structures</span>
@@ -694,12 +725,18 @@
                     <h4>IBM via Coursera</h4>
                     <div class="experience-date">Completed May 30, 2025</div>
                     <ul>
-                        <li>Mastered Python fundamentals including data structures, loops, and functions for data science applications</li>
-                        <li>Worked with libraries like Pandas, NumPy, and Matplotlib for data manipulation and visualization</li>
-                        <li>Built practical AI/ML projects demonstrating Python's capabilities in data analysis and automation</li>
+                        <li>Mastered Python fundamentals including data structures, loops, and functions for data
+                            science applications</li>
+                        <li>Worked with libraries like Pandas, NumPy, and Matplotlib for data manipulation and
+                            visualization</li>
+                        <li>Built practical AI/ML projects demonstrating Python's capabilities in data analysis and
+                            automation</li>
                         <li>Developed skills in API interaction, web scraping, and working with real-world datasets</li>
                     </ul>
-                    <a href="https://www.coursera.org/account/accomplishments/verify/AE9CWINJK2M9" target="_blank" class="btn" style="display: inline-block; margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">View Certificate →</a>
+                    <a href="https://www.coursera.org/account/accomplishments/verify/AE9CWINJK2M9" target="_blank"
+                        class="btn"
+                        style="display: inline-block; margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">View
+                        Certificate →</a>
                 </div>
 
                 <div class="experience-item">
@@ -707,12 +744,18 @@
                     <h4>Learn Kart WS</h4>
                     <div class="experience-date">Completed September 18, 2025</div>
                     <ul>
-                        <li>Gained comprehensive understanding of cybersecurity principles and ethical hacking methodologies</li>
-                        <li>Learned vulnerability assessment techniques including penetration testing and security auditing</li>
-                        <li>Explored network security, cryptography fundamentals, and secure system design practices</li>
+                        <li>Gained comprehensive understanding of cybersecurity principles and ethical hacking
+                            methodologies</li>
+                        <li>Learned vulnerability assessment techniques including penetration testing and security
+                            auditing</li>
+                        <li>Explored network security, cryptography fundamentals, and secure system design practices
+                        </li>
                         <li>Applied ethical hacking concepts to identify and mitigate security risks in systems</li>
                     </ul>
-                    <a href="https://www.coursera.org/account/accomplishments/verify/HR0E3X42XN6G" target="_blank" class="btn" style="display: inline-block; margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">View Certificate →</a>
+                    <a href="https://www.coursera.org/account/accomplishments/verify/HR0E3X42XN6G" target="_blank"
+                        class="btn"
+                        style="display: inline-block; margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">View
+                        Certificate →</a>
                 </div>
             </div>
         </div>
@@ -725,19 +768,28 @@
                 <div class="project-card">
                     <h3>🏆 DSS DataJam Hackathon Winner</h3>
                     <div class="project-date">2025</div>
-                    <p>Won first place at the DSS DataJam Hackathon for ClimaZoneAI - an AI-powered renewable energy forecasting system analyzing weather data from 233 Canadian cities. Built intelligent inference models, domain-specific energy indices, and interactive forecasting dashboards using Prophet, XGBoost, and Plotly.</p>
+                    <p>Won first place at the DSS DataJam Hackathon for ClimaZoneAI - an AI-powered renewable energy
+                        forecasting system analyzing weather data from 233 Canadian cities. Built intelligent inference
+                        models, domain-specific energy indices, and interactive forecasting dashboards using Prophet,
+                        XGBoost, and Plotly.</p>
                 </div>
 
                 <div class="project-card">
                     <h3>🎤 Most Engaging Presentation Award</h3>
                     <div class="project-date">DSS DataJam 2025</div>
-                    <p>Recognized for delivering the most engaging and impactful presentation at the DSS DataJam Hackathon. Successfully communicated complex technical concepts about renewable energy forecasting, AI model architecture, and data visualization to both technical and non-technical audiences.</p>
+                    <p>Recognized for delivering the most engaging and impactful presentation at the DSS DataJam
+                        Hackathon. Successfully communicated complex technical concepts about renewable energy
+                        forecasting, AI model architecture, and data visualization to both technical and non-technical
+                        audiences.</p>
                 </div>
 
                 <div class="project-card">
                     <h3>🌟 Community Engagement Scholarship</h3>
                     <div class="project-date">February 2025</div>
-                    <p>Awarded by Fraser International College for outstanding contributions to campus community building and student engagement. Recognized for leadership roles in orientation programs, technical support initiatives, and fostering an inclusive environment for international students.</p>
+                    <p>Awarded by Fraser International College for outstanding contributions to campus community
+                        building and student engagement. Recognized for leadership roles in orientation programs,
+                        technical support initiatives, and fostering an inclusive environment for international
+                        students.</p>
                 </div>
             </div>
         </div>
@@ -747,7 +799,8 @@
         <div class="container">
             <div class="contact-content">
                 <h2 class="section-title">Get In Touch</h2>
-                <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether you want to collaborate or just say hi, feel free to reach out!</p>
+                <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
+                    vision. Whether you want to collaborate or just say hi, feel free to reach out!</p>
                 <a href="mailto:bwa93@sfu.ca" class="btn">Send Me an Email</a>
                 <div class="contact-links">
                     <a href="https://www.linkedin.com/in/bhav-wadhwa-b16439247/" target="_blank" class="contact-link">
@@ -782,7 +835,7 @@
 
         function type() {
             const currentPhrase = phrases[phraseIndex];
-            
+
             if (isDeleting) {
                 typingText.textContent = currentPhrase.substring(0, charIndex - 1);
                 charIndex--;
@@ -815,5 +868,5 @@
         });
     </script>
 </body>
-</html>
 
+</html>
