@@ -338,6 +338,58 @@
             font-size: 0.85rem;
         }
 
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .project-link {
+            padding: 8px 20px;
+            border: 2px solid var(--accent);
+            background: transparent;
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            transition: left 0.3s;
+            z-index: -1;
+        }
+
+        .project-link:hover::before {
+            left: 0;
+        }
+
+        .project-link:hover {
+            color: var(--bg-primary);
+        }
+
+        .project-link::after {
+            content: '→';
+            transition: transform 0.3s;
+        }
+
+        .project-link:hover::after {
+            transform: translateX(3px);
+        }
+
         .experience-list {
             max-width: 900px;
         }
@@ -484,6 +536,7 @@
             <div class="logo">bhav.wadhwa</div>
             <ul>
                 <li><a href="#about">about</a></li>
+                <li><a href="#education">education</a></li>
                 <li><a href="#projects">projects</a></li>
                 <li><a href="#experience">experience</a></li>
                 <li><a href="#certifications">certifications</a></li>
@@ -497,7 +550,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Bhav Wadhwa</h1>
-                <h2>Hackathon Winner | Computing Science Student @ SFU</h2>
+                <h2>Hackathon Winner | Bachelor of Applied Science in Computing Science @ SFU</h2>
                 <div class="typing-text" id="typing-text"></div>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn">View Projects</a>
@@ -529,15 +582,30 @@
                 </div>
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <h3>Programming Languages & Frameworks</h3>
+                        <h3>Programming Languages</h3>
                         <ul>
                             <li>Python</li>
                             <li>C++</li>
                             <li>JavaScript</li>
                             <li>TypeScript</li>
+                            <li>R</li>
+                            <li>SQL</li>
+                            <li>x86-64</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Frameworks & Libraries</h3>
+                        <ul>
                             <li>Node.js</li>
-                            <li>R Studio</li>
-                            <li>Git</li>
+                            <li>Express.js</li>
+                            <li>React</li>
+                            <li>Flask</li>
+                            <li>pandas</li>
+                            <li>NumPy</li>
+                            <li>Matplotlib</li>
+                            <li>scikit-learn</li>
+                            <li>XGBoost</li>
+                            <li>Qiskit</li>
                         </ul>
                     </div>
                     <div class="skill-category">
@@ -545,25 +613,30 @@
                         <ul>
                             <li>HTML & CSS</li>
                             <li>REST APIs</li>
-                            <li>Responsive Design</li>
-                            <li>Cross-Browser Compatibility</li>
-                            <li>Leaflet API</li>
-                            <li>Express.js</li>
-                            <li>Flask</li>
                             <li>Application Deployment</li>
                             <li>Network Development</li>
+                            <li>Leaflet.js</li>
                         </ul>
                     </div>
                     <div class="skill-category">
                         <h3>Security & Cryptography</h3>
                         <ul>
                             <li>MD5 Hashing</li>
-                            <li>QKD (Quantum Key Distribution)</li>
                             <li>XOR Encryption/Decryption</li>
                             <li>Cryptographic Protocols</li>
                             <li>Key Management</li>
-                            <li>Secure Coding Practices</li>
-                            <li>Qiskit</li>
+                            <li>Quantum Key Distribution</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Developer Tools & Platforms</h3>
+                        <ul>
+                            <li>Git</li>
+                            <li>Google Cloud Platform</li>
+                            <li>VS Code</li>
+                            <li>Visual Studio</li>
+                            <li>IntelliJ</li>
+                            <li>Eclipse</li>
                         </ul>
                     </div>
                     <div class="skill-category">
@@ -571,13 +644,28 @@
                         <ul>
                             <li>Data Structures & Algorithms</li>
                             <li>Object-Oriented Programming</li>
+                            <li>Machine Learning</li>
                             <li>Dynamic Memory Management</li>
                             <li>Debugging & Performance Tuning</li>
-                            <li>Keras</li>
-                            <li>Machine Learning</li>
-                            <li>Automated Reasoning</li>
                         </ul>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <h3>Bachelor of Applied Science in Computing Science</h3>
+                    <h4>Simon Fraser University</h4>
+                    <div class="experience-date">September 2023 – May 2028 | Burnaby, BC</div>
+                    <ul>
+                        <li>Relevant Coursework: Data Structures & Algorithms, Machine Learning, Software Engineering, Operating Systems, Database Systems, Web Development, Computer Networks, Cloud Computing, Statistical Computing</li>
+                        <li>Certifications: IBM Python for Data Science, AI & Development; LearnKart WS Ethical Hacking Fundamentals</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -588,50 +676,86 @@
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <h3>ClimaZoneAI - Renewable Energy Forecasting</h3>
-                    <div class="project-date">DSS DataJam Hackathon Winner | October 2025</div>
-                    <p>AI-powered forecasting system predicting solar, wind, and hydro energy potential across 231
-                        Canadian cities. Engineered data pipelines processing 100K+ weather records with pandas and
-                        scikit-learn. Implemented ensemble models using Prophet and XGBoost for accurate predictions (30
-                        days–1 year). Built interactive Plotly.js dashboard deployed via GitHub Pages.</p>
+                    <h3>Neura Linker AI – Student Matcher</h3>
+                    <div class="project-date">December 2025</div>
+                    <p>Developed as a group project, building the AI matching backend using 3 algorithms (K-means clustering, weighted similarity, hybrid model) to compute compatibility across 9 weighted attributes. Independently designed and implemented the backend matching algorithms, achieving an 83% high-quality match rate (at least 60% similarity) across datasets of 600+ student profiles. Applied machine learning techniques (Jaccard Index, K-means clustering, weighted scoring) and backend optimization strategies to design scalable, data-driven matching systems.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Prophet</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">REST APIs</span>
+                        <span class="tech-tag">K-means Clustering</span>
+                        <span class="tech-tag">Jaccard Index</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/BhavWadhwaHub/StudentAI-matcher" target="_blank" class="project-link">View on GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>ClimaZone AI</h3>
+                    <div class="project-date">Winner of DataJam Hackathon | October 2025</div>
+                    <p>Developed an AI-driven forecasting system for 231 Canadian cities, achieving 94% renewable energy prediction accuracy through large-scale data modeling. Processed over 1B global datasets into 103k optimized records, improving hydro energy prediction accuracy by 61% using geospatial and ensemble methods. Enhanced forecast reliability through R², RMSE, and MAE evaluations, realizing a 31% boost in R², 63% drop in RMSE, and 69% reduction in MAE.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">R</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">scikit-learn</span>
                         <span class="tech-tag">XGBoost</span>
-                        <span class="tech-tag">Plotly.js</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">NumPy</span>
-                        <span class="tech-tag">Scikit-learn</span>
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">AI/ML</span>
+                        <span class="tech-tag">Prophet</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/BhavWadhwaHub/ClimaZoneAI" target="_blank" class="project-link">View on GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Insertion Sort CPU Microarchitecture</h3>
+                    <div class="project-date">October 2025 - December 2025</div>
+                    <p>Performed a comparative performance analysis of C, assembly, and SIMD implementations on modern CPUs. Studied compiler optimizations, branch predictability, cache behavior, and scalar vs SIMD execution. Showed how memory access patterns and algorithm structure dominate real-world performance.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">x86 Assembly</span>
+                        <span class="tech-tag">C/C++</span>
+                        <span class="tech-tag">Cache Management</span>
+                        <span class="tech-tag">SIMD</span>
+                        <span class="tech-tag">Performance Testing</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/BhavWadhwaHub/insertion-sort-cpu-microarchitecture" target="_blank" class="project-link">View on GitHub</a>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <h3>Quantum Walkie Talkie</h3>
                     <div class="project-date">July 2025</div>
-                    <p>A BB84-inspired Quantum Key Distribution simulation using Qiskit for secure cryptographic key
-                        generation. Implemented secure communication workflow with quantum basis matching and
-                        one-time-pad XOR encryption for message exchange.</p>
+                    <p>Built a quantum communication model using BB84-based Quantum Key Distribution for secure key exchange. Achieved 128-bit entropy in key generation, ensuring one-time-pad XOR encryption for secure transmission. Applied Qiskit-based circuit design and cryptography principles to simulate secure communication systems.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Qiskit</span>
+                        <span class="tech-tag">Quantum Circuits</span>
                         <span class="tech-tag">Cryptography</span>
-                        <span class="tech-tag">Quantum Computing</span>
+                        <span class="tech-tag">NumPy</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/BhavWadhwaHub/Quantum-Walkie-Talkie" target="_blank" class="project-link">View on GitHub</a>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <h3>Emergency Reporting Service</h3>
-                    <div class="project-date">November 2024</div>
-                    <p>Web-based Emergency Reporting & Monitoring System with interactive maps for real-time tracking.
-                        Features secure report management with MD5 hashing, sortable listings, and comprehensive input
-                        validation.</p>
+                    <h3>Emergency Reporting System</h3>
+                    <div class="project-date">December 2024</div>
+                    <p>Built a real-time emergency reporting platform with interactive maps and secure MD5-encrypted data handling. Enhanced data security with input validation and comprehensive error handling, reducing submission errors by 51% and improving cross-browser responsiveness. Led collaboration within a 4-member development team, focusing on planning, delegation, and code reviews, achieving a 59% reduction in development time.</p>
                     <div class="tech-tags">
+                        <span class="tech-tag">HTML</span>
                         <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">HTML/CSS</span>
-                        <span class="tech-tag">Leaflet API</span>
-                        <span class="tech-tag">Web Development</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">Leaflet.js</span>
+                        <span class="tech-tag">CryptoJS</span>
+                        <span class="tech-tag">MD5 Hashing</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/BhavWadhwaHub/Emergency-Reporting-Service" target="_blank" class="project-link">View on GitHub</a>
                     </div>
                 </div>
 
@@ -647,6 +771,9 @@
                         <span class="tech-tag">System Design</span>
                         <span class="tech-tag">Algorithms</span>
                     </div>
+                    <div class="project-links">
+                        <a href="https://github.com/BhavWadhwaHub/Hospital-Management-System" target="_blank" class="project-link">View on GitHub</a>
+                    </div>
                 </div>
 
                 <div class="project-card">
@@ -660,6 +787,9 @@
                         <span class="tech-tag">Memory Management</span>
                         <span class="tech-tag">Algorithms</span>
                     </div>
+                    <div class="project-links">
+                        <a href="https://github.com/BhavWadhwaHub/Playlist-Management" target="_blank" class="project-link">View on GitHub</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -669,6 +799,17 @@
         <div class="container">
             <h2 class="section-title">Experience</h2>
             <div class="experience-list">
+                <div class="experience-item">
+                    <h3>Community Transition Program Director</h3>
+                    <h4>Fraser International College</h4>
+                    <div class="experience-date">January 2026 – Present | Burnaby, BC</div>
+                    <ul>
+                        <li>Led and guided a team of Community Transition Program (CTP) Managers, providing direction and mentorship</li>
+                        <li>Served as the key liaison between the student transition team and the Orientation team, working closely with FIC staff</li>
+                        <li>Developed leadership, communication, and cross-functional collaboration skills through directing orientation initiatives</li>
+                    </ul>
+                </div>
+
                 <div class="experience-item">
                     <h3>Community Transition Manager</h3>
                     <h4>Fraser International College</h4>
@@ -681,13 +822,13 @@
                 </div>
 
                 <div class="experience-item">
-                    <h3>Information Technology Squad</h3>
+                    <h3>Information Technology Support Specialist</h3>
                     <h4>Fraser International College</h4>
-                    <div class="experience-date">September 2024 - April 2025 | Burnaby, BC</div>
+                    <div class="experience-date">August 2024 – May 2025 | Burnaby, BC</div>
                     <ul>
-                        <li>Troubleshooting technical issues for teachers, staff, and students</li>
-                        <li>Managing inventory and overseeing campus technology infrastructure</li>
-                        <li>Resolving hardware/software issues to optimize support processes</li>
+                        <li>Resolved technical issues for students and staff, supporting smooth IT operations for 300+ users across campus</li>
+                        <li>Configured computing IDs for university registration, enabling 2-factor authentication for 150+ new user accounts</li>
+                        <li>Improved user satisfaction by promptly addressing IT-related concerns, escalating complex issues to senior management, achieving a 53% satisfaction rate</li>
                     </ul>
                 </div>
 
@@ -870,4 +1011,3 @@
 </body>
 
 </html>
-
